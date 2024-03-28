@@ -47,11 +47,13 @@ const res = babel.transformSync(
     someFunction<TSomeType>();
 `,
   {
+    filename: "file.ts",
     plugins: [
-      "@babel/plugin-syntax-typescript",
+      //"@babel/plugin-syntax-typescript",
       testPlugin,
-      "@babel/plugin-transform-typescript",
+      // "@babel/plugin-transform-typescript",
     ],
+    presets: ["@babel/preset-typescript"],
     ast: true,
   },
 );

@@ -13,10 +13,12 @@ const res = babel.transformSync(
     someFunction<TSomeType>();
 `,
   {
-    plugins: [
+      filename: "file.ts",
+    /*  plugins: [
       "@babel/plugin-syntax-typescript",
       //"@babel/plugin-transform-typescript",
-    ],
+    ],*/
+    presets: ["@babel/preset-typescript"],
     ast: true,
   },
 );

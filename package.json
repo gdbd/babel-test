@@ -3,6 +3,7 @@
     "@babel/core": "^7.24.0",
     "@babel/cli": "^7.23.9",
     "@babel/plugin-transform-typescript": "^7.23.6",
+    "@babel/preset-typescript": "^7.24.1",
     "prettier": "^3.2.5",
     "typescript": "^5.4.2"
   },
