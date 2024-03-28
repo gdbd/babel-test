@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/cli": "^7.23.9",
+    "@babel/plugin-transform-typescript": "^7.23.6",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.2"
+  },
+  "scripts": {
+    "transform-test": "node transform-test.js",
+    "plugin-test": "node plugin-test.js"
+  }
+}
