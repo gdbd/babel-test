@@ -21,7 +21,6 @@ const testPlugin = (api, options) => {
           "CallExpression: call type",
         );
 
-        // no typeParameters here
         assert(
           path.node.typeParameters !== null,
           "CallExpression: has type parameters",
@@ -34,7 +33,6 @@ const testPlugin = (api, options) => {
           "ExpressionStatement: call type",
         );
 
-        // has typeParameters here
         assert(
           path.node.expression.typeParameters !== null,
           "ExpressionStatement: type parameters",
@@ -44,13 +42,18 @@ const testPlugin = (api, options) => {
   };
 };
 
-babel.transformSync(
+const res = babel.transformSync(
   `
     someFunction<TSomeType>();
 `,
   {
-    plugins: ["@babel/plugin-transform-typescript", testPlugin],
-    parserOpts: { plugins: ["typescript"] },
+    plugins: [
+      "@babel/plugin-syntax-typescript",
+      testPlugin,
+      "@babel/plugin-transform-typescript",
+    ],
     ast: true,
   },
 );
+
+console.log(res.code);

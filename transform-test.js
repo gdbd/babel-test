@@ -13,18 +13,21 @@ const res = babel.transformSync(
     someFunction<TSomeType>();
 `,
   {
-    parserOpts: { plugins: ["typescript"] },
-    plugins: ["@babel/plugin-transform-typescript"],
+    plugins: [
+      "@babel/plugin-syntax-typescript",
+      //"@babel/plugin-transform-typescript",
+    ],
     ast: true,
   },
 );
+
+console.log("result:", res.code);
 
 assert(
   res.ast.program.body[0].expression.type === "CallExpression",
   "call type",
 );
 
-// no typeParameters here
 assert(
   res.ast.program.body[0].expression.typeParameters !== null,
   "has type parameters",
